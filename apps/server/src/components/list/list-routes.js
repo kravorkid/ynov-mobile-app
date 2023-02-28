@@ -1,15 +1,12 @@
 import Router from '@koa/router'
+import * as ListControllers from './list-controllers.js'
 
 const lists = new Router()
 
-lists.get('/', async (ctx, next) => {
-  console.log(ctx)
-  ctx.ok('All list')
-  ctx.body = 'All list'
-})
-lists.get('/:id', () => {})
-lists.post('/', () => {})
-lists.put('/:id', () => {})
-lists.del('/:id', () => {})
+lists.get('/', ListControllers.getLists)
+lists.get('/:id', ListControllers.getOneList)
+lists.post('/', ListControllers.createList)
+lists.put('/:id', ListControllers.updateList)
+lists.del('/:id', ListControllers.deleteList)
 
 export default lists

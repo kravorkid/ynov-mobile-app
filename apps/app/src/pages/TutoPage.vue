@@ -37,6 +37,9 @@
     <CompOne />
     <CompTwo />
     <q-btn label="increment from store" @click="() => counterStore.increment()"/>
+
+    <h2>Async call</h2>
+    {{ listStore.lists }}
   </div>
 </template>
 <script setup>
@@ -44,9 +47,12 @@ import TestComponent from 'components/TestComponent.vue'
 import CompOne from 'components/CompOne.vue'
 import CompTwo from 'components/CompTwo.vue'
 import { useCounterStore } from 'stores/example-store'
+import { useListStore } from 'stores/list-store'
 import { ref, computed, watch, onMounted } from 'vue'
 
 const counterStore = useCounterStore()
+const listStore = useListStore()
+
 const inputFirstName = ref()
 const firstName = ref('John')
 const lastName = ref('Doe')
@@ -54,12 +60,14 @@ const reactiveData = ref('Test')
 const counter = ref(0)
 const counterX2 = computed(() => counter.value * 2)
 const fullName = computed(() => `${firstName.value} ${lastName.value}`)
+
 const increment = () => {
   counter.value++
 }
 
 onMounted(() => {
   console.log(inputFirstName.value)
+  listStore.getLists()
   inputFirstName.value.select()
 })
 
