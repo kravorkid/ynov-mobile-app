@@ -1,0 +1,40 @@
+swagger: "2.0"
+info:
+  title: "Swagger Example"
+  description: >
+    This is an example Koa API.
+  version: "4.0.0"
+host: "localhost:6000"
+schemes:
+  - "http"
+paths:
+  /lists:
+    get:
+      summary: "get lists "
+      description: "If the service is up and running correctly the response will be 'UP'"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      responses:
+        200:
+          description: "Service is up and running"
+          schema:
+            $ref: "#/definitions/Lists"
+        500:
+          $ref: '#/responses/500'
+
+responses:
+  500:
+    description: Internal Server Error
+    # schema:
+    #   $ref: '#/definitions/Error'
+
+definitions:
+  Lists:
+    type: "object"
+    properties:
+      title: 
+        type: string
+      tasks: 
+        type: array

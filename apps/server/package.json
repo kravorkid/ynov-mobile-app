@@ -14,7 +14,10 @@
     "koa": "^2.14.1",
     "koa-bodyparser": "^4.3.0",
     "koa-respond": "^2.1.0",
+    "koa2-swagger-ui": "^5.7.0",
     "mongoose": "^6.10.0",
-    "nodemon": "^2.0.20"
+    "nodemon": "^2.0.20",
+    "swagger2": "^4.0.3",
+    "swagger2-koa": "^4.0.0"
   }
 }

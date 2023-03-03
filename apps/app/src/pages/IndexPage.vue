@@ -1,17 +1,13 @@
 <template>
-  <q-page class="flex flex-center">
-    <img
-      alt="Quasar logo"
-      src="~assets/quasar-logo-vertical.svg"
-      style="width: 200px; height: 200px"
-    >
+  <q-page class="q-pa-lg">
+    <q-btn
+      @click="() => router.push({ name: 'list-view', params: { id: '1234567' } })"
+      label="to list item"
+    />
   </q-page>
 </template>
 
-<script>
-import { defineComponent } from 'vue'
-
-export default defineComponent({
-  name: 'IndexPage'
-})
+<script setup>
+import { useRouter } from 'vue-router'
+const router = useRouter()
 </script>
